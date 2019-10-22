@@ -6,11 +6,9 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitFactory {
     private val retrofit = Retrofit.Builder()
-        .baseUrl("http://192.168.0.23:8080/")
+        .baseUrl("https://api.chucknorris.io/")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 
-    fun categoryService(): CateggoryService {
-        return retrofit.create(NoteService::class.java)
-    }
+    fun categoryService() = retrofit.create(CategoryService::class.java)
 }
