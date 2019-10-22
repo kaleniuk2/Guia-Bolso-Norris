@@ -15,17 +15,18 @@ class CategoryActivity : BaseActivity(), CategoryView {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        presenter.getCategories()
     }
 
     override fun onInject() {
-        this.presenter = CategoryPresenter()
-        this.presenter.view = this
+        this.presenter = CategoryPresenter(this)
     }
 
     override fun getLayout() = R.layout.activity_main
 
     override fun onSuccessCategories(categories: List<String>) {
-        Log.i("LISTAA", categories.toString())
+        Log.i("LISTAA", categories[1])
     }
 
     override fun onErrorCategories(error: String) {
@@ -42,6 +43,10 @@ class CategoryActivity : BaseActivity(), CategoryView {
 
     override fun hideProgressBar() {
         //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun onActivityDestroy() {
+        this.presenter.view = null
     }
 
     companion object {
