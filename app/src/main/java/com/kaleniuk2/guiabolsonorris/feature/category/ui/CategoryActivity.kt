@@ -1,4 +1,4 @@
-package com.kaleniuk2.guiabolsonorris.presentation.category
+package com.kaleniuk2.guiabolsonorris.feature.category.ui
 
 import android.content.Context
 import android.content.Intent

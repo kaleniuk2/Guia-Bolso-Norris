@@ -12,7 +12,11 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
-            android:name=".presentation.SplashScreenActivity"
+            android:name=".feature.detail.ui.DetailActivity"
+            android:label="@string/title_activity_detail"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".feature.SplashScreenActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_splash_screen"
             android:theme="@style/Theme.AppCompat.NoActionBar">
@@ -22,7 +26,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".presentation.category.CategoryActivity">
+        <activity android:name=".feature.category.ui.CategoryActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -1,15 +1,11 @@
-package com.kaleniuk2.guiabolsonorris.presentation
+package com.kaleniuk2.guiabolsonorris.feature
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
-import android.os.PersistableBundle
-import android.view.View
-import android.view.Window
 import android.view.WindowManager
 import com.kaleniuk2.guiabolsonorris.R
-import com.kaleniuk2.guiabolsonorris.presentation.category.CategoryActivity
-import kotlinx.android.synthetic.main.activity_splash_screen.*
+import com.kaleniuk2.guiabolsonorris.feature.category.ui.CategoryActivity
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
