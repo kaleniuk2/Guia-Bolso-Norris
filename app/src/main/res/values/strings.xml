@@ -8,4 +8,6 @@
     <string name="title_activity_detail">DetailActivity</string>
     <string name="imagem">Imagem</string>
     <string name="click_to_see_online">Clique para ver online</string>
+    <string name="initial_image">Imagem inicial do Chuck Norris</string>
+    <string name="type_your_category">Digite sua categoria</string>
 </resources>

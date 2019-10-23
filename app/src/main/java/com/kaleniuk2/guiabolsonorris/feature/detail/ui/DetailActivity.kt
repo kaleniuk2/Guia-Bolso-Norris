@@ -35,6 +35,7 @@ class DetailActivity : BaseActivity(), DetailView {
                 presenter.getJoke(it)
             }
         }
+
     }
 
     override fun onInject() {
