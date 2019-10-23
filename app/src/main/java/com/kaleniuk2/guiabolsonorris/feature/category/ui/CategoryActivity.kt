@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.widget.GridLayoutManager
+import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import com.kaleniuk2.guiabolsonorris.R
 import com.kaleniuk2.guiabolsonorris.core.BaseActivity
@@ -32,7 +33,7 @@ class CategoryActivity : BaseActivity(), CategoryView {
         rv_category.adapter = CategoryAdapter(categories){
             startActivity(DetailActivity.onNewIntent(this, it))
         }
-        rv_category.layoutManager = GridLayoutManager(this, 2)
+        rv_category.layoutManager = LinearLayoutManager(this)
         rv_category.setHasFixedSize(true)
     }
 

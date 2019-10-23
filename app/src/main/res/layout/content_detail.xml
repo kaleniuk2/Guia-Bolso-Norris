@@ -32,6 +32,15 @@
                 android:contentDescription="@string/imagem"
                 android:scaleType="fitCenter" android:src="@drawable/ic_launcher_background"/>
 
+            <ProgressBar
+                android:id="@+id/progress_image"
+                android:layout_width="wrap_content"
+                android:layout_alignTop="@+id/image_detail"
+                android:layout_alignStart="@+id/image_detail"
+                android:layout_alignEnd="@+id/image_detail"
+                android:layout_alignBottom="@+id/image_detail"
+                android:layout_height="wrap_content"/>
+
             <TextView
                 android:id="@+id/detail_text_view_created"
                 style="@style/FontGBolso"
@@ -56,7 +65,7 @@
                 android:layout_below="@id/detail_text_view_update"
                 android:textColor="@android:color/holo_blue_dark"
                 android:textStyle="bold"
-                tools:text="Clique para ver online"/>
+                android:text="@string/click_to_see_online"/>
 
             <TextView
                 android:id="@+id/detail_text_view_joke"

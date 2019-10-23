@@ -7,4 +7,5 @@
     <string name="name">Guia Bolso Norris</string>
     <string name="title_activity_detail">DetailActivity</string>
     <string name="imagem">Imagem</string>
+    <string name="click_to_see_online">Clique para ver online</string>
 </resources>
