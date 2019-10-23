@@ -1,7 +1,7 @@
 package com.kaleniuk2.guiabolsonorris.feature.category.datasource
 
-import com.kaleniuk2.guiabolsonorris.feature.category.ui.CategoryPresenter
 import com.kaleniuk2.guiabolsonorris.core.RetrofitFactory
+import com.kaleniuk2.guiabolsonorris.feature.category.ui.CategoryContract
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -12,7 +12,7 @@ class CategoryRemoteDataSource : CategoryDataSource {
         RetrofitFactory.categoryService()
     }
 
-    override fun getCategories(presenter: CategoryPresenter) {
+    override fun getCategories(presenter: CategoryContract) {
         categoryService.getCategories().enqueue(object : Callback<List<String>> {
             override fun onFailure(call: Call<List<String>>, t: Throwable) {
                 presenter.onFailure(t.localizedMessage)

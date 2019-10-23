@@ -1,7 +1,7 @@
 package com.kaleniuk2.guiabolsonorris.feature.category.datasource
 
-import com.kaleniuk2.guiabolsonorris.feature.category.ui.CategoryPresenter
+import com.kaleniuk2.guiabolsonorris.feature.category.ui.CategoryContract
 
 interface CategoryDataSource {
-    fun getCategories(presenter: CategoryPresenter)
+    fun getCategories(presenter: CategoryContract)
 }

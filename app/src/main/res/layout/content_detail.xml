@@ -1,15 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".feature.detail.ui.DetailActivity"
-    tools:showIn="@layout/activity_detail">
-    
-    <android.support.v7.widget.RecyclerView
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+
+              app:layout_behavior="@string/appbar_scrolling_view_behavior"
+              tools:context=".feature.detail.ui.DetailActivity"
+              tools:showIn="@layout/activity_detail">
+
+    <android.support.v7.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-    
-</android.support.constraint.ConstraintLayout>
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+
+        android:backgroundTint="#eee"
+        android:elevation="2dp"
+        app:cardCornerRadius="5dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:padding="10dp"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/image_detail"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_alignParentTop="true"
+                android:layout_margin="10dp"
+                android:contentDescription="@string/imagem"
+                android:scaleType="fitCenter" android:src="@drawable/ic_launcher_background"/>
+
+            <TextView
+                android:id="@+id/detail_text_view_created"
+                style="@style/FontGBolso"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/image_detail"
+                tools:text="Criada em: 10/10/2019"/>
+
+            <TextView
+                android:id="@+id/detail_text_view_update"
+                style="@style/FontGBolso"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/detail_text_view_created"
+                tools:text="Atualizada em: 10/10/2019"/>
+
+            <TextView
+                android:id="@+id/detail_text_view_see_online"
+                style="@style/FontGBolso"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/detail_text_view_update"
+                android:textColor="@android:color/holo_blue_dark"
+                android:textStyle="bold"
+                tools:text="Clique para ver online"/>
+
+            <TextView
+                android:id="@+id/detail_text_view_joke"
+                style="@style/FontGBolso"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/detail_text_view_see_online"
+                android:layout_marginTop="20dp"
+                android:textSize="20dp"
+                android:textStyle="bold|italic"
+                tools:text="Clique para ver online"/>
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>

@@ -7,6 +7,7 @@ import android.support.v7.widget.GridLayoutManager
 import android.view.View
 import com.kaleniuk2.guiabolsonorris.R
 import com.kaleniuk2.guiabolsonorris.core.BaseActivity
+import com.kaleniuk2.guiabolsonorris.feature.detail.ui.DetailActivity
 import com.kaleniuk2.guiabolsonorris.util.ToastHelper
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.toolbar_main.*
@@ -17,7 +18,6 @@ class CategoryActivity : BaseActivity(), CategoryView {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setSupportActionBar(toolbar_main)
         supportActionBar?.title = TITLE
         presenter.getCategories()
     }
@@ -29,7 +29,9 @@ class CategoryActivity : BaseActivity(), CategoryView {
     override fun getLayout() = R.layout.activity_main
 
     override fun onSuccessCategories(categories: List<String>) {
-        rv_category.adapter = CategoryAdapter(categories)
+        rv_category.adapter = CategoryAdapter(categories){
+            startActivity(DetailActivity.onNewIntent(this, it))
+        }
         rv_category.layoutManager = GridLayoutManager(this, 2)
         rv_category.setHasFixedSize(true)
     }
@@ -50,7 +52,8 @@ class CategoryActivity : BaseActivity(), CategoryView {
         progress_category.visibility = View.GONE
     }
 
-    override fun onActivityDestroy() {
+    override fun onDestroy() {
+        super.onDestroy()
         this.presenter.view = null
     }
 

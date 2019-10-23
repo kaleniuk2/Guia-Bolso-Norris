@@ -7,8 +7,8 @@ import android.view.ViewGroup
 import android.widget.TextView
 import com.kaleniuk2.guiabolsonorris.R
 
-class CategoryAdapter(private val categories: List<String>) :
-    RecyclerView.Adapter<CategoryViewHolder>() {
+class CategoryAdapter(private val categories: List<String>, private val listener: (category: String) -> Unit) :
+    RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>() {
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): CategoryViewHolder {
         return CategoryViewHolder(LayoutInflater.from(p0.context).inflate(R.layout.category_item, p0, false))
@@ -19,13 +19,18 @@ class CategoryAdapter(private val categories: List<String>) :
     override fun onBindViewHolder(p0: CategoryViewHolder, p1: Int) {
         p0.bind(categories[p1])
     }
-}
 
-class CategoryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-    private val tvCategory = itemView.findViewById<TextView>(R.id.category_item_text_view)
+    inner class CategoryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        private val tvCategory = itemView.findViewById<TextView>(R.id.category_item_text_view)
 
-    fun bind(category: String) {
-        tvCategory.text = category
+        fun bind(category: String) {
+            tvCategory.text = category.capitalize()
+            itemView.setOnClickListener {
+                listener.invoke(category)
+            }
+        }
     }
 }
+
+
 
