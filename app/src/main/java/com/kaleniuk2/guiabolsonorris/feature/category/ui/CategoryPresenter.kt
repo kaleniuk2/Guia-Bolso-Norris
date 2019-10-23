@@ -3,7 +3,7 @@ package com.kaleniuk2.guiabolsonorris.feature.category.ui
 import com.kaleniuk2.guiabolsonorris.feature.category.datasource.CategoryDataSource
 import com.kaleniuk2.guiabolsonorris.feature.category.datasource.CategoryRemoteDataSource
 
-class CategoryPresenter(override var view: CategoryView?) : CategoryPresenterContract {
+class CategoryPresenter(override var view: CategoryView?) : CategoryContract {
     override fun onDestroy() {
         view = null
     }

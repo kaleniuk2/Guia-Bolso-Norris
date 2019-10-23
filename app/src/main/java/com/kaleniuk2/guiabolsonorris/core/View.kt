@@ -1,4 +1,4 @@
-package com.kaleniuk2.guiabolsonorris.util
+package com.kaleniuk2.guiabolsonorris.core
 
 interface View {
     fun showProgressBar()

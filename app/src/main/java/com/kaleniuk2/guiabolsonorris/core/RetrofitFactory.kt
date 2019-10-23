@@ -1,4 +1,4 @@
-package com.kaleniuk2.guiabolsonorris.util
+package com.kaleniuk2.guiabolsonorris.core
 
 import com.kaleniuk2.guiabolsonorris.feature.category.datasource.CategoryService
 import retrofit2.Retrofit

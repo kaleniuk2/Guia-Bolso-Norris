@@ -1,7 +1,7 @@
 package com.kaleniuk2.guiabolsonorris.feature.category.datasource
 
 import com.kaleniuk2.guiabolsonorris.feature.category.ui.CategoryPresenter
-import com.kaleniuk2.guiabolsonorris.util.RetrofitFactory
+import com.kaleniuk2.guiabolsonorris.core.RetrofitFactory
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

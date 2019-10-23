@@ -2,16 +2,15 @@ package com.kaleniuk2.guiabolsonorris.feature.category.ui
 
 import android.content.Context
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import com.kaleniuk2.guiabolsonorris.R
-import com.kaleniuk2.guiabolsonorris.util.BaseActivity
+import com.kaleniuk2.guiabolsonorris.core.BaseActivity
 import com.kaleniuk2.guiabolsonorris.util.ToastHelper
 
 class CategoryActivity : BaseActivity(), CategoryView {
 
-    lateinit var presenter: CategoryPresenterContract
+    lateinit var presenter: CategoryContract
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
