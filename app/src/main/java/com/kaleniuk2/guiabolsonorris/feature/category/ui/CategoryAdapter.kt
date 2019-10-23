@@ -1,25 +1,31 @@
 package com.kaleniuk2.guiabolsonorris.feature.category.ui
 
 import android.support.v7.widget.RecyclerView
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import com.kaleniuk2.guiabolsonorris.R
 
-class CategoryAdapter : RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>() {
+class CategoryAdapter(private val categories: List<String>) :
+    RecyclerView.Adapter<CategoryViewHolder>() {
+
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): CategoryViewHolder {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return CategoryViewHolder(LayoutInflater.from(p0.context).inflate(R.layout.category_item, p0, false))
     }
 
-    override fun getItemCount(): Int {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
+    override fun getItemCount() = categories.size
 
     override fun onBindViewHolder(p0: CategoryViewHolder, p1: Int) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        p0.bind(categories[p1])
     }
+}
 
+class CategoryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    private val tvCategory = itemView.findViewById<TextView>(R.id.category_item_text_view)
 
-    inner class CategoryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-
+    fun bind(category: String) {
+        tvCategory.text = category
     }
 }
 

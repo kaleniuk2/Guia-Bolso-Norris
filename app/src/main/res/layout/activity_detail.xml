@@ -6,8 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".feature.detail.ui.DetailActivity">
 
-    <include layout="@layout/toolbar_main"
-        android:id="toolbar"/>
+    <include
+        layout="@layout/toolbar_main"/>
 
     <include layout="@layout/content_detail" />
 

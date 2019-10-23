@@ -3,10 +3,13 @@ package com.kaleniuk2.guiabolsonorris.feature.category.ui
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
+import android.support.v7.widget.GridLayoutManager
+import android.view.View
 import com.kaleniuk2.guiabolsonorris.R
 import com.kaleniuk2.guiabolsonorris.core.BaseActivity
 import com.kaleniuk2.guiabolsonorris.util.ToastHelper
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.toolbar_main.*
 
 class CategoryActivity : BaseActivity(), CategoryView {
 
@@ -14,7 +17,8 @@ class CategoryActivity : BaseActivity(), CategoryView {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        setSupportActionBar(toolbar_main)
+        supportActionBar?.title = TITLE
         presenter.getCategories()
     }
 
@@ -25,7 +29,9 @@ class CategoryActivity : BaseActivity(), CategoryView {
     override fun getLayout() = R.layout.activity_main
 
     override fun onSuccessCategories(categories: List<String>) {
-        Log.i("LISTAA", categories[1])
+        rv_category.adapter = CategoryAdapter(categories)
+        rv_category.layoutManager = GridLayoutManager(this, 2)
+        rv_category.setHasFixedSize(true)
     }
 
     override fun onErrorCategories(error: String) {
@@ -37,11 +43,11 @@ class CategoryActivity : BaseActivity(), CategoryView {
     }
 
     override fun showProgressBar() {
-        //To change body of created functions use File | Settings | File Templates.
+        progress_category.visibility = View.VISIBLE
     }
 
     override fun hideProgressBar() {
-        //To change body of created functions use File | Settings | File Templates.
+        progress_category.visibility = View.GONE
     }
 
     override fun onActivityDestroy() {
@@ -49,6 +55,7 @@ class CategoryActivity : BaseActivity(), CategoryView {
     }
 
     companion object {
+        private const val TITLE = "Categorias"
         fun onNewIntent(context: Context): Intent {
             return Intent(context, CategoryActivity::class.java)
         }
