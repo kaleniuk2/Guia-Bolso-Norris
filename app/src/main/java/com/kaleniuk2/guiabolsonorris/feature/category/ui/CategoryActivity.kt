@@ -18,6 +18,8 @@ import kotlinx.android.synthetic.main.toolbar_main.*
 class CategoryActivity : BaseActivity(), CategoryView {
 
     lateinit var presenter: CategoryContract
+    lateinit var categories: List<String>
+    lateinit var adapter: CategoryAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,17 +30,31 @@ class CategoryActivity : BaseActivity(), CategoryView {
 
     private val textWatcher: TextWatcher = object : TextWatcher {
         override fun afterTextChanged(s: Editable?) {
-            //kk
+            //Nao faz nada
         }
 
         override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-            //To change body of created functions use File | Settings | File Templates.
+            //Nao faz nada
         }
 
         override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-            ToastHelper.show(applicationContext, s.toString())
+            if (::categories.isInitialized || s.toString() != "") {
+                val result = arrayListOf<String>()
+                for (categorie in categories) {
+                    if (categorie.contains(s.toString()))
+                        result.add(categorie)
+                }
+                updateAdapter(result)
+            } else {
+                updateAdapter(categories)
+            }
         }
 
+    }
+
+    private fun updateAdapter(list: List<String>) {
+        adapter.categories = list
+        adapter.notifyDataSetChanged()
     }
 
     override fun onInject() {
@@ -48,9 +64,16 @@ class CategoryActivity : BaseActivity(), CategoryView {
     override fun getLayout() = R.layout.activity_main
 
     override fun onSuccessCategories(categories: List<String>) {
-        rv_category.adapter = CategoryAdapter(categories) {
+        this.categories = categories
+        initRecyclerView()
+
+    }
+
+    private fun initRecyclerView() {
+        adapter = CategoryAdapter(this.categories) {
             startActivity(DetailActivity.onNewIntent(this, it))
         }
+        rv_category.adapter = adapter
         rv_category.layoutManager = LinearLayoutManager(this)
         rv_category.setHasFixedSize(true)
     }
